@@ -8,7 +8,7 @@ use std::process;
 use std::sync::Arc;
 use std::time::SystemTime;
 
-    use clap;
+use clap;
 use grep::cli;
 use grep::matcher::LineTerminator;
 #[cfg(feature = "pcre2")]
@@ -73,10 +73,10 @@ pub enum Command {
 
 impl Command {
     /// Returns true if and only if this command requires executing a search.
-      fn is_search(&self) -> bool {
-            use self::Command::*;
+    fn is_search(&self) -> bool {
+        use self::Command::*;
 
-          match *self {
+        match *self {
             Search | SearchParallel => true,
             SearchNever | Files | FilesParallel | Types | PCRE2Version => {
                 false
@@ -123,7 +123,7 @@ impl Args {
     /// ripgrep, then print the version and exit.
     ///
     /// Also, initialize a global logger.
-     pub fn parse()   -> Result<Args> {
+    pub fn parse() -> Result<Args> {
         // We parse the args given on CLI. This does not include args from
         // the config. We use the CLI args as an initial configuration while
         // trying to parse config files. If a config file exists and has
